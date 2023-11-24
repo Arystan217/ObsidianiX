@@ -1,51 +1,57 @@
 const ADD_POST = "ADD-POST"
 const NEW_POST_VALUE = "NEW-POST-VALUE"
+
 const NEW_MESSAGE_VALUE = "NEW-MESSAGE-VALUE"
 const ADD_MESSAGE = "ADD-MESSAGE"
+
 const NEW_SEARCH_VALUE = "NEW-SEARCH-VALUE"
 
 const store = {
   _state: {
-    posts: [
-      {
-        id: 1,
-        text: "first impression of this social media",
-      },
-      {
-        id: 2,
-        text: "second impression",
-      },
-      {
-        id: 3,
-        text: "third impression",
-      },
-    ],
-    chats: [
-      {
-        id: 1,
-        name: "Elon Musk",
-      },
-      {
-        id: 2,
-        name: "Sam Altmon"
-      },
-      {
-        id: 3,
-        name: "Murk Zuckerberg"
-      },
-      {
-        id: 4,
-        name: "Bill Gates"
-      },
-    ],
-    messages: [
-      "Hello what's up?",
-      "it's me",
-      "How is your nothing?"
-    ],
-    newPostValue: "",
-    messageValue: "",
-    searchValue: "",
+    postsPage: {
+      posts: [
+        {
+          id: 1,
+          text: "first impression of this social media",
+        },
+        {
+          id: 2,
+          text: "second impression",
+        },
+        {
+          id: 3,
+          text: "third impression",
+        },
+      ],
+      newPostValue: "",
+    },
+    chatsPage: {
+      chats: [
+        {
+          id: 1,
+          name: "Elon Musk",
+        },
+        {
+          id: 2,
+          name: "Sam Altmon"
+        },
+        {
+          id: 3,
+          name: "Murk Zuckerberg"
+        },
+        {
+          id: 4,
+          name: "Bill Gates"
+        },
+      ],
+      messages: [
+        "Hello what's up?",
+        "it's me",
+        "How is your nothing?"
+      ],
+      messageValue: "",
+      searchValue: "",
+    },
   },
 
   getState() {
@@ -60,31 +66,31 @@ const store = {
 
   _addPost(action) {
     const newPost = {
-      id: store.getState().posts.length + 1,
-      text: this._state.newPostValue
+      id: store._state.postsPage.posts.length + 1,
+      text: this._state.postsPage.newPostValue
     }
-    this._state.posts.push(newPost)
-    this._state.newPostValue = ""
+    this._state.postsPage.posts.push(newPost)
+    this._state.postsPage.newPostValue = ""
     this._callSubscriber(store)
   },
   _newPostValue(action) {
-    this._state.newPostValue = action.newValue
+    this._state.postsPage.newPostValue = action.newValue
     this._callSubscriber(store)
   },
   _addMessage(action) {
-    if (this._state.messageValue.trim() !== "") {
-      this._state.messages.push(this._state.messageValue)
-      this._state.messageValue = ""
+    if (this._state.chatsPage.messageValue.trim() !== "") {
+      this._state.chatsPage.messages.push(this._state.chatsPage.messageValue)
+      this._state.chatsPage.messageValue = ""
       this._callSubscriber(store)      
     }
     return
   },
   _newMessageValue(action) {
-    this._state.messageValue = action.newValue
+    this._state.chatsPage.messageValue = action.newValue
     this._callSubscriber(store)
   },
   _newSearchValue(action) {
-    this._state.searchValue = action.newValue
+    this._state.chatsPage.searchValue = action.newValue
     this._callSubscriber(store)
   },
   dispatch(action) {

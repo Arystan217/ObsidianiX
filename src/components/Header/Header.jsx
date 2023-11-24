@@ -1,7 +1,7 @@
 import React from "react";
 import styles from './Header.module.css'
 import { Link } from "react-router-dom";
-import { newSearchValueActionCreator } from "../../redux/state";
+import { newSearchValueActionCreator } from "../../redux/store";
 
 const Header = ( {state, dispatch} ) => {
   return (

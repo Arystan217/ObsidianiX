@@ -19,9 +19,9 @@ function App( {store} ) {
           <Route path="/SignIn" element={<Profile />} />
           <Route path="/SignUp" element={<Home />} />
           <Route path="/Home" element={<Home />} />
-          <Route path="/Chats" element={<Chats state={store.getState()} dispatch={store.dispatch.bind(store)} />} />
-          <Route path="/MyProfile" element={<Profile state={store.getState()} dispatch={store.dispatch.bind(store)} />} />
-        </Routes>
+          <Route path="/Chats" element={<Chats state={store.getState().chatsPage} dispatch={store.dispatch.bind(store)} />} />
+          <Route path="/MyProfile" element={<Profile state={store.getState().postsPage} dispatch={store.dispatch.bind(store)} />} />
+        </Routes> 
       </div>
 
 
