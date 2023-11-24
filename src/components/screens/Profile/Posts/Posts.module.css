@@ -1,0 +1,25 @@
+.posts {
+  margin-top: 30px;
+}
+.post {
+  background: linear-gradient(80deg, #ffe122, #39eb28, #19d1c5);
+  background-size: 200% 200%;
+  animation: gradientAnimation 5s infinite;
+  color: #222;
+  text-shadow: 0 0 3px rgba(51, 51, 51, 0.159);
+  font-size: 20px;
+  padding: 20px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #b8b8b8;
+  margin-bottom: 10px;
+}
+@keyframes gradientAnimation {
+  0%, 100% {
+    background-position: 100% 0;
+  }
+  50% {
+    background-position: 0 0;
+  }
+}

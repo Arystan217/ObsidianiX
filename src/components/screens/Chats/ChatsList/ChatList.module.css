@@ -1,0 +1,18 @@
+.chatsList {
+  width: 20%;
+  background: #aac7fc;
+  padding: 10px;
+}
+.chatsList a {
+  display: block;
+  color: #000;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: all 0.1s ease;
+}
+.chatsList a:hover {
+  text-shadow: 0 0 10px gray;
+}

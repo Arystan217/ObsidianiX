@@ -1,0 +1,23 @@
+.sidebar {
+  width: 15%;
+  height: 100vh;
+  margin-right: 15px;
+}
+.sidebarUl {
+  
+}
+.sidebarItem a {
+  display: block;
+  color: black;
+  font-size: 19px;
+  font-weight: 500;
+  padding: 12px 0;
+  border-bottom: 1px solid gray;
+  transition: all 0.2s ease;
+}
+.sidebarItem a:hover {
+  text-shadow: 0 0 10px gray;
+}
+.sidebarItem:last-child a {
+  border-bottom: none;
+}

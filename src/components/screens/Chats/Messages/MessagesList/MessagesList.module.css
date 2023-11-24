@@ -1,0 +1,15 @@
+.messagesList {
+  padding-bottom: 50px;
+}
+.myMessage {
+  margin-bottom: 5px;  
+  text-align: right;
+}
+.myMessage span {
+  display: inline-block;
+  padding: 8px;
+  border-radius: 9px;
+  max-width: 80%;
+  background: #aac7fc;
+  text-align: left;
+}
