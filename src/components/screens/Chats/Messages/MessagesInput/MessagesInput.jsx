@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./MessagesInput.module.css"
-import { addMessageActionCreator, newMessageValueActionCreator } from "../../../../../redux/store";
+import { addMessageActionCreator, newMessageValueActionCreator } from "../../../../../redux/chatsReducer";
 
 const MessagesInput = ( {messageValue, dispatch} ) => {
 

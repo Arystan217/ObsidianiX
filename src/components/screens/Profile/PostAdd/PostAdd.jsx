@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./PostAdd.module.css"
-import { addPostActionCreator, newPostValueActionCreator } from "../../../../redux/store";
+import { addPostActionCreator, newPostValueActionCreator } from "../../../../redux/postsReducer";
 
 const PostAdd = ( {dispatch, newPostValue} ) => {
 

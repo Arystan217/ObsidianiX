@@ -4,7 +4,7 @@ import styles from "./MessagesList.module.css"
 const MessagesList = ( {messages} ) => {
   return (
     <div className={styles.messagesList}> 
-      {messages.map(message => (<p className={styles.myMessage}><span>{message}</span></p>))}
+      {messages.map((message, index) => (<p key={index} className={styles.myMessage}><span>{message}</span></p>))}
     </div>
   )
 }
