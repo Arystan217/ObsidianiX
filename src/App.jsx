@@ -8,8 +8,8 @@ import Profile from './components/screens/Profile/Profile'
 import Chats from './components/screens/Chats/Chats'
 import styles from './App.module.css'
 
-function App( {store} ) {
-
+const App = ( {store} ) => {
+  
   return (
     <>
       <Header state={store.getState()} dispatch={store.dispatch.bind(store)} />

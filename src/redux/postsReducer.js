@@ -1,8 +1,25 @@
 const ADD_POST = "ADD-POST"
 const NEW_POST_VALUE = "NEW-POST-VALUE"
 
+const initialState = {
+  posts: [
+    {
+      id: 1,
+      text: "first impression of this social media",
+    },
+    {
+      id: 2,
+      text: "second impression",
+    },
+    {
+      id: 3,
+      text: "third impression",
+    },
+  ],
+  newPostValue: "",
+}
 
-const postsReducer = (state, action) => {
+const postsReducer = (state = initialState, action) => {
 
   switch(action.type) {
     case ADD_POST:
@@ -24,9 +41,9 @@ const postsReducer = (state, action) => {
 export default postsReducer
 
 
-export const addPostActionCreator = () => (
-  {type: ADD_POST}
-)
+export const addPostActionCreator = () => ({
+  type: ADD_POST
+})
 export const newPostValueActionCreator = newValue => ({
   type: NEW_POST_VALUE, newValue: newValue
 })
