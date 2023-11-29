@@ -1,15 +1,14 @@
 import React from "react";
 import styles from "./MessagesInput.module.css"
-import { addMessageActionCreator, newMessageValueActionCreator } from "../../../../../redux/chatsReducer";
 
-const MessagesInput = ( {messageValue, dispatch} ) => {
+const MessagesInput = ( {messageValue, newMessageValue, addMessage} ) => {
 
   const changeMessageHandler = e => {
-    dispatch(newMessageValueActionCreator(e.target.value))
+    newMessageValue(e.target.value)
   }
 
   const sendMessageHandler = () => {
-    dispatch(addMessageActionCreator())
+    addMessage()
   }
 
   const keyPressHandler = e => {

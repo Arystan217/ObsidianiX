@@ -1,21 +1,10 @@
 import React from "react";
 import styles from "./PostAdd.module.css"
-import { addPostActionCreator, newPostValueActionCreator } from "../../../../redux/postsReducer";
 
-const PostAdd = ( {dispatch, newPostValue} ) => {
+const PostAdd = ( {handlePostButtonClick, newPostValue, newPostValueChange} ) => {
 
-  const addingNewPost = e => {
-    e.preventDefault();
-    
-    if (newPostValue.trim().length > 0) {
-      dispatch(addPostActionCreator())
-    } else {
-      alert("type smth bro")
-    }
-  }
-
-  const newPostValueChangeHandler = e => {
-    dispatch(newPostValueActionCreator(e.target.value))
+  const handlePostValueChange = e => {
+    newPostValueChange(e.target.value)
   }
 
   return (
@@ -24,9 +13,9 @@ const PostAdd = ( {dispatch, newPostValue} ) => {
       <textarea
         className={styles.textarea}
         value={newPostValue}
-        onChange={newPostValueChangeHandler}
+        onChange={handlePostValueChange}
       ></textarea>
-      <button className={styles.postButton} onClick={addingNewPost}>Post!</button>
+      <button className={styles.postButton} onClick={handlePostButtonClick}>Post!</button>
     </form>
   )
 }

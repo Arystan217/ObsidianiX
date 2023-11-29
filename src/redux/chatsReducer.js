@@ -31,7 +31,6 @@ const initialState = {
 }
 
 const chatsReducer = (state = initialState, action) => {
-  
   switch(action.type) {
     case NEW_MESSAGE_VALUE:
       state.messageValue = action.newValue
