@@ -3,7 +3,7 @@ import styles from './Header.module.css'
 import { Link } from "react-router-dom";
 import { newSearchValueActionCreator } from "../../redux/chatsReducer";
 
-const Header = ( {state, dispatch} ) => {
+const Header = ( {searchValue, searchValueChangeHandler} ) => {
   return (
     <header>
       <div className={styles.headerContainer + " container"}>
@@ -11,8 +11,8 @@ const Header = ( {state, dispatch} ) => {
 
         <input 
           type="text"
-          value={state.searchValue}
-          onChange={e => dispatch(newSearchValueActionCreator(e.target.value))}
+          value={searchValue}
+          onChange={e => searchValueChangeHandler(e.target.value)}
           className={styles.headerSearch}
           placeholder="Find chat"
         />

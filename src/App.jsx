@@ -7,20 +7,22 @@ import Home from './components/screens/Home/Home'
 import Profile from './components/screens/Profile/Profile'
 import Chats from './components/screens/Chats/Chats'
 import styles from './App.module.css'
+import HeaderContainer from './components/Header/HeaderContainer';
 
-const App = ( {store} ) => {
+const App = () => {
   
   return (
     <>
-      <Header state={store.getState()} dispatch={store.dispatch.bind(store)} />
+      {/* <Header store={store} /> */}
+      <HeaderContainer />
       <div className="container app-container">
         <Sidebar />
         <Routes>
           <Route path="/SignIn" element={<Profile />} />
           <Route path="/SignUp" element={<Home />} />
           <Route path="/Home" element={<Home />} />
-          <Route path="/Chats" element={<Chats store={store} />} />
-          <Route path="/MyProfile" element={<Profile store={store} />} />
+          <Route path="/Chats" element={<Chats />} />
+          <Route path="/MyProfile" element={<Profile />} />
         </Routes> 
       </div>
 
