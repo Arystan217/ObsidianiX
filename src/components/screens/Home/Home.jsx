@@ -1,4 +1,3 @@
-import react from "react";
 import './Home.module.css'
 
 const Home = () => {

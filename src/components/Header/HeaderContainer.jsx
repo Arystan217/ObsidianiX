@@ -1,22 +1,18 @@
 import React from "react";
 import { newSearchValueActionCreator } from "../../redux/chatsReducer";
 import Header from "./Header";
-import StoreContext from "../../StoreContext";
+import { connect } from "react-redux";
 
-const HeaderContainer = () => {
-  return (
-    <StoreContext.Consumer>
-      {store => {
 
-        const searchValueChangeHandler = (newValue) => {
-          store.dispatch(newSearchValueActionCreator(newValue))
-        }
+const mapStateToProps = state => ({
+  searchValue: state.chatsPage.searchValue
+})
+const mapDispatchToProps = dispatch => ({
+  searchValueChangeHandler : newValue => {
+    dispatch(newSearchValueActionCreator(newValue))
+  }
+})
 
-        return <Header searchValue={store.getState().chatsPage.searchValue} searchValueChangeHandler={searchValueChangeHandler} />
-        
-      }}
-    </StoreContext.Consumer>
-  )
-}
+const HeaderContainer = connect(mapStateToProps, mapDispatchToProps)(Header)
 
 export default HeaderContainer

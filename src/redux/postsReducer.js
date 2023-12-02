@@ -23,12 +23,14 @@ const postsReducer = (state = initialState, action) => {
 
   switch(action.type) {
     case ADD_POST:
-      const newPost = {
-        id: state.posts.length + 1,
-        text: state.newPostValue
+      if (state.newPostValue.trim().length > 0) {
+        const newPost = {
+          id: state.posts.length + 1,
+          text: state.newPostValue
+        }
+        state.posts.push(newPost)
+        state.newPostValue = ""
       }
-      state.posts.push(newPost)
-      state.newPostValue = ""
       return state
     case NEW_POST_VALUE:
       state.newPostValue = action.newValue

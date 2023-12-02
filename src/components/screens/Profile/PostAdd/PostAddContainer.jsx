@@ -1,35 +1,22 @@
-import React from "react";
 import { addPostActionCreator, newPostValueActionCreator } from "../../../../redux/postsReducer";
 import PostAdd from "./PostAdd";
-import StoreContext from "../../../../StoreContext";
+import { connect } from "react-redux";
 
-const PostAddContainer = () => {
 
-  return (
-    <StoreContext.Consumer>
-      {store => {
+const mapStateToProps = state => ({
+  newPostValue: state.postsPage.newPostValue
+})
+const mapDispatchToProps = dispatch => ({
+  handlePostButtonClick: e => {
+    e.preventDefault();
+    dispatch(addPostActionCreator())
+  },
+  newPostValueChange: newValue => {
+    dispatch(newPostValueActionCreator(newValue))
+  },
+})
 
-        const handlePostButtonClick = e => {
-          e.preventDefault();
-          
-          if (store.getState().postsPage.newPostValue.trim().length > 0) {
-            store.dispatch(addPostActionCreator())
-          }
-        }
+const PostAddContainer = connect(mapStateToProps, mapDispatchToProps)(PostAdd)
 
-        const newPostValueChange = newValue => {
-          store.dispatch(newPostValueActionCreator(newValue))
-        }
-
-        return (<PostAdd 
-          handlePostButtonClick={handlePostButtonClick} 
-          newPostValue={store.getState().postsPage.newPostValue} 
-          newPostValueChange={newPostValueChange} 
-        />)
-      }}
-    </StoreContext.Consumer>
-    
-  )
-}
 
 export default PostAddContainer

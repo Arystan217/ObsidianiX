@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react"
 import ChatsList from "./ChatsList";
+import { connect } from "react-redux";
 
 
-const ChatsListContainer = ( {store} ) => {
+const mapStateToProps = state => {
 
-  const [foundChats, setFoundChats] = useState(store.getState().chatsPage.chats)
+  const [foundChats, setFoundChats] = useState(state.chatsPage.chats)
 
-  const state = store.getState()
   const searchValue = state.chatsPage.searchValue
   const chats = state.chatsPage.chats
 
@@ -17,9 +17,12 @@ const ChatsListContainer = ( {store} ) => {
       setFoundChats(chats.filter((chat) => chat.name.toLowerCase().includes(searchValue.toLowerCase())));
     }
   }, [searchValue, chats]);
-  
 
-  return <ChatsList foundChats={foundChats} />
+  return {
+    foundChats : foundChats
+  }
 }
+
+const ChatsListContainer = connect(mapStateToProps)(ChatsList)
 
 export default ChatsListContainer

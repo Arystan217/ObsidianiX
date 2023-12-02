@@ -3,9 +3,10 @@ import styles from "./Messages.module.css"
 import MessagesList from "./MessagesList/MessagesList"
 import MessagesInput from "./MessagesInput/MessagesInput"
 import { addMessageActionCreator, newMessageValueActionCreator } from "../../../../redux/chatsReducer";
+import { connect } from "react-redux";
 
 
-const MessagesContainer = ( {store} ) => {
+const MessagesContainerdf = ( {store} ) => {
 
   const state = store.getState().chatsPage
   const dispatch = store.dispatch
@@ -25,5 +26,7 @@ const MessagesContainer = ( {store} ) => {
     </div>
   )
 }
+
+const MessagesContainer = connect()() /* TODO: can i put several components inside connect? */
 
 export default MessagesContainer
